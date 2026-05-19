@@ -1,0 +1,364 @@
+* {
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  color: #1f2937;
+  background: #f8fafc;
+}
+
+.container {
+  width: 90%;
+  max-width: 1100px;
+  margin: auto;
+}
+
+/* Navbar */
+.navbar {
+  background: #0f172a;
+  color: white;
+  padding: 14px 0;
+  position: sticky;
+  top: 0;
+  z-index: 99;
+}
+
+.nav-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.logo {
+  width: 48px;
+  height: 48px;
+  background: #facc15;
+  color: #0f172a;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+}
+
+.brand h1 {
+  font-size: 20px;
+  margin: 0;
+}
+
+.brand p {
+  margin: 3px 0 0;
+  font-size: 13px;
+  color: #cbd5e1;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  margin-left: 18px;
+  font-size: 14px;
+}
+
+nav a:hover {
+  color: #facc15;
+}
+
+/* Hero */
+.hero {
+  background: linear-gradient(135deg, rgba(15,23,42,0.95), rgba(30,64,175,0.9)),
+              url("https://images.unsplash.com/photo-1523050854058-8df90110c9f1");
+  background-size: cover;
+  background-position: center;
+  color: white;
+  padding: 90px 0;
+}
+
+.hero-content {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 35px;
+  align-items: center;
+}
+
+.badge {
+  background: #facc15;
+  color: #111827;
+  padding: 8px 14px;
+  border-radius: 999px;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.hero h2 {
+  font-size: 44px;
+  margin: 20px 0 15px;
+}
+
+.hero p {
+  font-size: 18px;
+  line-height: 1.7;
+}
+
+.hero-buttons {
+  margin-top: 25px;
+}
+
+/* Tombol Umum */
+.btn {
+  display: inline-block;
+  padding: 13px 20px;
+  border-radius: 8px;
+  text-decoration: none !important;
+  font-weight: bold;
+  margin: 5px;
+  cursor: pointer;
+}
+
+.primary {
+  background: #facc15;
+  color: #111827 !important;
+}
+
+.primary:hover {
+  background: #fbbf24;
+  color: #111827 !important;
+}
+
+.secondary {
+  background: transparent;
+  color: white !important;
+  border: 2px solid white;
+}
+
+.secondary:hover {
+  background: white;
+  color: #0f172a !important;
+}
+
+/* Hero Card */
+.hero-card {
+  background: white;
+  color: #1f2937;
+  padding: 25px;
+  border-radius: 16px;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+}
+
+.hero-card h3 {
+  margin-top: 0;
+  color: #1e40af;
+}
+
+.hero-card li {
+  margin: 12px 0;
+}
+
+/* Section */
+.section {
+  padding: 70px 0;
+}
+
+.light {
+  background: #eef2ff;
+}
+
+.section-title {
+  text-align: center;
+  font-size: 30px;
+  margin-bottom: 35px;
+  color: #1e40af;
+}
+
+/* Cards */
+.cards,
+.stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+}
+
+.card,
+.content-box,
+.job-card,
+.stat-card {
+  background: white;
+  padding: 28px;
+  border-radius: 16px;
+  box-shadow: 0 8px 22px rgba(15, 23, 42, 0.08);
+}
+
+.card h3,
+.job-card h3 {
+  color: #1e40af;
+  margin-top: 0;
+}
+
+.content-box {
+  line-height: 1.8;
+}
+
+.center {
+  text-align: center;
+}
+
+/* Lowongan & Agenda */
+.job-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 22px;
+}
+
+.job-card p {
+  line-height: 1.6;
+}
+
+/* Tombol khusus agenda dari Google Sheets */
+.job-card a.btn,
+.content-box a.btn,
+#agenda-list a.btn {
+  display: inline-block;
+  background: #facc15;
+  color: #111827 !important;
+  padding: 13px 20px;
+  border-radius: 8px;
+  text-decoration: none !important;
+  font-weight: bold;
+  margin-top: 18px;
+}
+
+.job-card a.btn:hover,
+.content-box a.btn:hover,
+#agenda-list a.btn:hover {
+  background: #fbbf24;
+  color: #111827 !important;
+}
+
+/* Rekap */
+.stat-card {
+  text-align: center;
+}
+
+.stat-card h3 {
+  font-size: 40px;
+  color: #1e40af;
+  margin: 0;
+}
+
+.note {
+  color: #64748b;
+  font-size: 14px;
+  margin-top: 18px;
+}
+
+/* Form Admin */
+form label {
+  display: block;
+  font-weight: bold;
+  margin-top: 15px;
+}
+
+form input,
+form textarea {
+  width: 100%;
+  padding: 13px;
+  margin-top: 7px;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  font-size: 16px;
+  font-family: Arial, sans-serif;
+}
+
+form textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+button.btn {
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+/* Footer */
+footer {
+  background: #0f172a;
+  color: white;
+  text-align: center;
+  padding: 25px;
+}
+
+/* Responsive HP */
+@media (max-width: 768px) {
+  .nav-content {
+    display: block;
+  }
+
+  .brand {
+    margin-bottom: 18px;
+  }
+
+  nav {
+    text-align: left;
+  }
+
+  nav a {
+    display: inline-block;
+    margin: 8px 16px 8px 0;
+    font-size: 16px;
+  }
+
+  .hero {
+    padding: 60px 0;
+  }
+
+  .hero-content {
+    display: block;
+  }
+
+  .hero h2 {
+    font-size: 32px;
+  }
+
+  .hero p {
+    font-size: 16px;
+  }
+
+  .hero-card {
+    margin-top: 30px;
+  }
+
+  .cards,
+  .stats,
+  .job-list {
+    grid-template-columns: 1fr;
+  }
+
+  .section {
+    padding: 55px 0;
+  }
+
+  .section-title {
+    font-size: 28px;
+  }
+
+  .card,
+  .content-box,
+  .job-card,
+  .stat-card {
+    padding: 24px;
+  }
+
+  .btn {
+    display: inline-block;
+    margin-top: 12px;
+  }
+}

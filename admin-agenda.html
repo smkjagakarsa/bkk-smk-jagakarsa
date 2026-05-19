@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Admin BKK SMK JAGAKARSA</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+  <script>
+    const passwordBenar = "bkkjagakarsa2026";
+    const inputPassword = prompt("Masukkan password admin:");
+
+    if (inputPassword !== passwordBenar) {
+      alert("Password salah. Akses ditolak.");
+      window.location.href = "index.html";
+    }
+  </script>
+
+  <header class="navbar">
+    <div class="container nav-content">
+      <div class="brand">
+        <div class="logo">BKK</div>
+        <div>
+          <h1>Admin BKK</h1>
+          <p>SMK JAGAKARSA</p>
+        </div>
+      </div>
+
+      <nav>
+        <a href="index.html">Kembali ke Website</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Tambah Agenda -->
+  <section class="section">
+    <div class="container">
+      <h2 class="section-title">Tambah Agenda</h2>
+
+      <div class="content-box">
+        <form
+          id="formAgenda"
+          action="https://script.google.com/macros/s/AKfycbyyqSDCSiCpfFjkM2vmK28mxVHD1wsHTHvpAwJ2DmibPsgRNtjLHx4oXGKp74JUxJ2_ag/exec"
+          method="POST"
+          target="hiddenFrame"
+        >
+          <input type="hidden" name="tipe" value="agenda">
+
+          <label>Judul Agenda</label>
+          <input type="text" name="judul" placeholder="Contoh: Rapat Koordinasi BKK" required>
+
+          <label>Tanggal</label>
+          <input type="text" name="tanggal" placeholder="Contoh: 27 Mei 2026" required>
+
+          <label>Waktu</label>
+          <input type="text" name="waktu" placeholder="Contoh: 10.00 WIB" required>
+
+          <label>Tempat</label>
+          <input type="text" name="tempat" placeholder="Contoh: Aula SMK JAGAKARSA" required>
+
+          <label>Keterangan</label>
+          <textarea name="keterangan" placeholder="Tulis keterangan agenda" required></textarea>
+
+          <input
+            type="hidden"
+            name="linkForm"
+            value="https://forms.gle/1dGh9HpAp9u5ANNw9"
+          >
+
+          <br><br>
+          <button type="submit" class="btn primary">Simpan Agenda</button>
+        </form>
+
+        <p id="pesanAgenda" class="note"></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tambah Lowongan -->
+  <section class="section light">
+    <div class="container">
+      <h2 class="section-title">Tambah Lowongan Kerja</h2>
+
+      <div class="content-box">
+        <form
+          id="formLowongan"
+          action="https://script.google.com/macros/s/AKfycbyyqSDCSiCpfFjkM2vmK28mxVHD1wsHTHvpAwJ2DmibPsgRNtjLHx4oXGKp74JUxJ2_ag/exec"
+          method="POST"
+          target="hiddenFrame"
+        >
+          <input type="hidden" name="tipe" value="lowongan">
+
+          <label>Judul Lowongan</label>
+          <input type="text" name="judul" placeholder="Contoh: Lowongan Operator Produksi" required>
+
+          <label>Perusahaan</label>
+          <input type="text" name="perusahaan" placeholder="Contoh: PT Contoh Industri" required>
+
+          <label>Posisi</label>
+          <input type="text" name="posisi" placeholder="Contoh: Operator Produksi" required>
+
+          <label>Kualifikasi</label>
+          <textarea name="kualifikasi" placeholder="Contoh: Lulusan SMK, sehat jasmani rohani, siap bekerja shift" required></textarea>
+
+          <label>Batas Pendaftaran</label>
+          <input type="text" name="batas" placeholder="Contoh: 30 Juni 2026" required>
+
+          <label>Link Daftar / Info</label>
+          <input type="url" name="linkDaftar" placeholder="https://forms.gle/xxxx atau link website perusahaan" required>
+
+          <br><br>
+          <button type="submit" class="btn primary">Simpan Lowongan</button>
+        </form>
+
+        <p id="pesanLowongan" class="note"></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tambah Dokumentasi -->
+  <section class="section">
+    <div class="container">
+      <h2 class="section-title">Tambah Dokumentasi Kegiatan</h2>
+
+      <div class="content-box">
+        <form
+          id="formDokumentasi"
+          action="https://script.google.com/macros/s/AKfycbyyqSDCSiCpfFjkM2vmK28mxVHD1wsHTHvpAwJ2DmibPsgRNtjLHx4oXGKp74JUxJ2_ag/exec"
+          method="POST"
+          target="hiddenFrame"
+        >
+          <input type="hidden" name="tipe" value="dokumentasi">
+
+          <label>Judul Dokumentasi</label>
+          <input type="text" name="judul" placeholder="Contoh: Sosialisasi Pendataan Alumni" required>
+
+          <label>Deskripsi</label>
+          <textarea name="deskripsi" placeholder="Tulis deskripsi kegiatan" required></textarea>
+
+          <label>Upload Foto</label>
+          <input type="file" id="fileFoto" accept="image/*" required>
+
+          <input type="hidden" name="linkFoto" id="linkFoto">
+
+          <p class="note">
+            Pilih foto kegiatan. Foto akan otomatis diupload dan linknya disimpan ke database.
+          </p>
+
+          <br>
+          <button type="submit" class="btn primary" id="btnDokumentasi">
+            Simpan Dokumentasi
+          </button>
+        </form>
+
+        <p id="pesanDokumentasi" class="note"></p>
+      </div>
+    </div>
+  </section>
+
+  <iframe name="hiddenFrame" style="display:none;"></iframe>
+
+  <footer>
+    <p>&copy; 2026 BKK SMK JAGAKARSA. Halaman Admin.</p>
+  </footer>
+
+  <script>
+    const CLOUD_NAME = "dknfqim0m";
+    const UPLOAD_PRESET = "kegiatan-jagakarsa";
+
+    function setupForm(formId, pesanId, suksesText) {
+      const form = document.getElementById(formId);
+      const pesan = document.getElementById(pesanId);
+
+      form.addEventListener("submit", function() {
+        pesan.innerText = "Data sedang disimpan...";
+
+        setTimeout(function() {
+          pesan.innerText = suksesText;
+          form.reset();
+        }, 1500);
+      });
+    }
+
+    setupForm("formAgenda", "pesanAgenda", "Agenda berhasil disimpan.");
+    setupForm("formLowongan", "pesanLowongan", "Lowongan berhasil disimpan.");
+
+    const formDokumentasi = document.getElementById("formDokumentasi");
+    const pesanDokumentasi = document.getElementById("pesanDokumentasi");
+    const btnDokumentasi = document.getElementById("btnDokumentasi");
+    const fileFoto = document.getElementById("fileFoto");
+    const linkFoto = document.getElementById("linkFoto");
+
+    formDokumentasi.addEventListener("submit", async function(event) {
+      event.preventDefault();
+
+      const file = fileFoto.files[0];
+
+      if (!file) {
+        pesanDokumentasi.innerText = "Pilih foto terlebih dahulu.";
+        return;
+      }
+
+      try {
+        btnDokumentasi.disabled = true;
+        btnDokumentasi.innerText = "Mengupload foto...";
+        pesanDokumentasi.innerText = "Foto sedang diupload ke Cloudinary...";
+
+        const formData = new FormData();
+        formData.append("file", file);
+        formData.append("upload_preset", UPLOAD_PRESET);
+        formData.append("folder", "bkk-jagakarsa");
+
+        const response = await fetch(
+          `https://api.cloudinary.com/v1_1/${CLOUD_NAME}/image/upload`,
+          {
+            method: "POST",
+            body: formData
+          }
+        );
+
+        const result = await response.json();
+
+        if (!result.secure_url) {
+          throw new Error("Upload gagal");
+        }
+
+        linkFoto.value = result.secure_url;
+
+        pesanDokumentasi.innerText = "Foto berhasil diupload. Menyimpan data...";
+
+        formDokumentasi.submit();
+
+        setTimeout(function() {
+          pesanDokumentasi.innerText = "Dokumentasi berhasil disimpan.";
+          formDokumentasi.reset();
+          linkFoto.value = "";
+          btnDokumentasi.disabled = false;
+          btnDokumentasi.innerText = "Simpan Dokumentasi";
+        }, 1800);
+
+      } catch (error) {
+        pesanDokumentasi.innerText = "Gagal upload foto. Coba lagi.";
+        btnDokumentasi.disabled = false;
+        btnDokumentasi.innerText = "Simpan Dokumentasi";
+      }
+    });
+  </script>
+
+</body>
+</html>
