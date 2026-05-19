@@ -30,6 +30,7 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 20px;
 }
 
 .brand {
@@ -48,6 +49,7 @@ body {
   align-items: center;
   justify-content: center;
   font-weight: bold;
+  flex-shrink: 0;
 }
 
 .brand h1 {
@@ -61,10 +63,16 @@ body {
   color: #cbd5e1;
 }
 
+nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 14px;
+}
+
 nav a {
   color: white;
   text-decoration: none;
-  margin-left: 18px;
   font-size: 14px;
 }
 
@@ -221,10 +229,11 @@ nav a:hover {
   line-height: 1.6;
 }
 
-/* Tombol khusus agenda dari Google Sheets */
+/* Tombol khusus agenda / lowongan dari Google Sheets */
 .job-card a.btn,
 .content-box a.btn,
-#agenda-list a.btn {
+#agenda-list a.btn,
+#lowongan-list a.btn {
   display: inline-block;
   background: #facc15;
   color: #111827 !important;
@@ -237,7 +246,8 @@ nav a:hover {
 
 .job-card a.btn:hover,
 .content-box a.btn:hover,
-#agenda-list a.btn:hover {
+#agenda-list a.btn:hover,
+#lowongan-list a.btn:hover {
   background: #fbbf24;
   color: #111827 !important;
 }
@@ -288,6 +298,47 @@ button.btn {
   font-size: 16px;
 }
 
+/* Dokumentasi / Galeri */
+#dokumentasi .container {
+  max-width: 1100px;
+}
+
+#dokumentasi-list.gallery {
+  display: grid !important;
+  grid-template-columns: repeat(3, 1fr) !important;
+  gap: 22px !important;
+  align-items: start;
+}
+
+#dokumentasi-list .gallery-card {
+  background: white;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 8px 22px rgba(15, 23, 42, 0.08);
+}
+
+#dokumentasi-list .gallery-card img {
+  width: 100% !important;
+  height: 190px !important;
+  max-height: 190px !important;
+  object-fit: cover !important;
+  display: block !important;
+  background: #e5e7eb;
+}
+
+#dokumentasi-list .gallery-card h3 {
+  font-size: 18px;
+  color: #1e40af;
+  margin: 16px 16px 6px;
+}
+
+#dokumentasi-list .gallery-card p {
+  font-size: 14px;
+  margin: 0 16px 18px;
+  color: #475569;
+  line-height: 1.5;
+}
+
 /* Footer */
 footer {
   background: #0f172a;
@@ -296,8 +347,8 @@ footer {
   padding: 25px;
 }
 
-/* Responsive HP */
-@media (max-width: 768px) {
+/* Responsive Tablet */
+@media (max-width: 900px) {
   .nav-content {
     display: block;
   }
@@ -307,21 +358,67 @@ footer {
   }
 
   nav {
-    text-align: left;
+    justify-content: flex-start;
+  }
+
+  .hero-content {
+    grid-template-columns: 1fr;
+  }
+
+  .cards,
+  .stats,
+  .job-list,
+  #dokumentasi-list.gallery {
+    grid-template-columns: 1fr 1fr !important;
+  }
+}
+
+/* Responsive HP */
+@media (max-width: 768px) {
+  .container {
+    width: 90%;
+  }
+
+  .navbar {
+    padding: 18px 0;
+  }
+
+  .nav-content {
+    display: block;
+  }
+
+  .brand {
+    margin-bottom: 18px;
+  }
+
+  .logo {
+    width: 58px;
+    height: 58px;
+    font-size: 20px;
+  }
+
+  .brand h1 {
+    font-size: 26px;
+  }
+
+  .brand p {
+    font-size: 18px;
+  }
+
+  nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: 18px 28px;
   }
 
   nav a {
-    display: inline-block;
-    margin: 8px 16px 8px 0;
-    font-size: 16px;
+    font-size: 22px;
+    margin: 0;
   }
 
   .hero {
     padding: 60px 0;
-  }
-
-  .hero-content {
-    display: block;
   }
 
   .hero h2 {
@@ -338,8 +435,9 @@ footer {
 
   .cards,
   .stats,
-  .job-list {
-    grid-template-columns: 1fr;
+  .job-list,
+  #dokumentasi-list.gallery {
+    grid-template-columns: 1fr !important;
   }
 
   .section {
@@ -347,13 +445,14 @@ footer {
   }
 
   .section-title {
-    font-size: 28px;
+    font-size: 34px;
   }
 
   .card,
   .content-box,
   .job-card,
-  .stat-card {
+  .stat-card,
+  #dokumentasi-list .gallery-card {
     padding: 24px;
   }
 
@@ -361,46 +460,37 @@ footer {
     display: inline-block;
     margin-top: 12px;
   }
-}
-/* Dokumentasi / Galeri */
-.gallery {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 22px;
-}
 
-.gallery-card {
-  background: white;
-  border-radius: 16px;
-  overflow: hidden;
-  box-shadow: 0 8px 22px rgba(15, 23, 42, 0.08);
-}
-
-.gallery-card img {
-  width: 100%;
-  height: 220px;
-  object-fit: cover;
-  display: block;
-  background: #e5e7eb;
-}
-
-.gallery-card h3 {
-  color: #1e40af;
-  margin: 18px 18px 8px;
-}
-
-.gallery-card p {
-  margin: 0 18px 22px;
-  color: #475569;
-  line-height: 1.6;
-}
-
-@media (max-width: 768px) {
-  .gallery {
-    grid-template-columns: 1fr;
+  #dokumentasi-list .gallery-card {
+    padding: 0;
   }
 
-  .gallery-card img {
-    height: 210px;
+  #dokumentasi-list .gallery-card img {
+    height: 220px !important;
+    max-height: 220px !important;
+  }
+}
+
+/* Responsive HP kecil */
+@media (max-width: 480px) {
+  .brand h1 {
+    font-size: 24px;
+  }
+
+  .brand p {
+    font-size: 17px;
+  }
+
+  nav a {
+    font-size: 20px;
+  }
+
+  .section-title {
+    font-size: 32px;
+  }
+
+  #dokumentasi-list .gallery-card img {
+    height: 200px !important;
+    max-height: 200px !important;
   }
 }
